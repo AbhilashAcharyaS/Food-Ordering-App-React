@@ -2,6 +2,10 @@ body{
     margin:0;
 }
 
+.body{
+    padding:0px 20px 20px 30px;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -50,6 +54,7 @@ body{
 
 .res-img{
     width:100%;
+    max-height: 150px;
 }
 
 .footer{
