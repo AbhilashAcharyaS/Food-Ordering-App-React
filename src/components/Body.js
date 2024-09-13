@@ -5,7 +5,9 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
   const [listOfRestaurants , setListOfRestaurants] = useState([]);
-
+  const [copyListofRestaurants,setCopyListofRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  
   useEffect(()=>{
     fetchData()
   },[]);
@@ -16,7 +18,8 @@ const Body = () => {
     const jsonData= await data.json();
     console.log(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
 
-    setListOfRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setCopyListofRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
   
   if(listOfRestaurants.length===0){
@@ -26,26 +29,42 @@ const Body = () => {
     return (
       <div className="body">
         <div className="filter">
+
+          <div className="search">
+            <input type="text" className="search-input" value={searchText} 
+              onChange={(e)=>{
+                setSearchText(e.target.value);
+              }} />
+  
+            <button onClick={()=>{
+              console.log(searchText);
+              let searchResultRest= listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+              console.log(searchResultRest);
+              
+              setCopyListofRestaurants(searchResultRest);
+            }}>Search</button>
+          </div>
+
           <button className="filter-btn" 
             onClick={()=>{
               let filteredResList= listOfRestaurants.filter((res)=> res.info.avgRating > 4.5);
               console.log(filteredResList);
-              setListOfRestaurants(filteredResList);
+              setCopyListofRestaurants(filteredResList);
             }}>Top rated Restarants</button>
 
 
           {/* <button className="filter-btn" 
             onClick={()=>{
-              let sortedResList= listOfRestaurants.toSorted((a, b) => a.info.sla.deliveryTime < b.info.sla.deliveryTime ? -1 : 1);
+              let sortedResList= copyListofRestaurants.toSorted((a, b) => a.info.sla.deliveryTime < b.info.sla.deliveryTime ? -1 : 1);
               console.log(sortedResList);
-              setListOfRestaurants(sortedResList);
+              setCopyListofRestaurants(sortedResList);
             }}>Sort based on delivery time</button> */}
 
             
             
         </div>
         <div className="res-container">
-          {listOfRestaurants.map((res) => (
+          {copyListofRestaurants.map((res) => (
             <RestaurantCard key={res.info.id} resData={res} />
           ))}
         </div>
