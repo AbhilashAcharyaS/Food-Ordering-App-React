@@ -3,7 +3,7 @@ body{
 }
 
 .body{
-    padding:0px 20px 20px 30px;
+    padding:0px 20px 20px 50px;
 }
 
 .header{
@@ -62,4 +62,17 @@ body{
     color: white;
     text-align: center;
     padding:30px;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    width:200px;
+    height:300px;
+    margin:5px;
+    padding: 10px;
+    background-color: #f0f0f0
 }
