@@ -44,7 +44,7 @@ const RestaurantMenu =()=>{
 
                 
                     {itemCards.map((item)=>(
-                         <p key={item.card.info.id}>{item.card.info.name} --- ₹{item.card.info.price/100}</p>
+                         <p key={item.card.info.id}>{item.card.info.name} --- ₹{item.card.info.price/100 || item.card.info.defaultPrice/100}</p>
                     ))}
                     
                 
