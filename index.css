@@ -4,6 +4,7 @@ body{
 
 .body{
     padding:0px 20px 20px 50px;
+    min-height: 53vh;
 }
 
 .header{
@@ -46,6 +47,12 @@ body{
     margin:5px;
 }
 
+ a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .res-card:hover{
     border:1px solid black;
     cursor: pointer;
@@ -83,4 +90,9 @@ body{
 
 .res-menu-container{
     text-align: center;
+}
+
+.size-4{   
+    width: 12px;
+    margin-right: 4px;
 }

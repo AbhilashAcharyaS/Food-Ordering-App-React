@@ -24,7 +24,7 @@ const Body = () => {
   }
   
   if(listOfRestaurants.length===0){
-    return <div className="body"><Shimmer/></div> 
+    return <div><Shimmer/></div> 
   }
 
     return (
