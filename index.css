@@ -96,3 +96,18 @@ body{
     width: 12px;
     margin-right: 4px;
 }
+
+.about-page{
+    display: flex;
+}
+
+.about-page> .img{
+    margin-top: 15px;
+    margin-right: 50px;
+}
+
+.developer-img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}

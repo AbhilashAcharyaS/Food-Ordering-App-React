@@ -54,12 +54,12 @@ const Body = () => {
             }}>Top rated Restarants</button>
 
 
-          {/* <button className="filter-btn" 
+          <button className="filter-btn" 
             onClick={()=>{
               let sortedResList= copyListofRestaurants.toSorted((a, b) => a.info.sla.deliveryTime < b.info.sla.deliveryTime ? -1 : 1);
               console.log(sortedResList);
               setCopyListofRestaurants(sortedResList);
-            }}>Sort based on delivery time</button> */}
+            }}>Sort based on delivery time</button>
 
             
             
