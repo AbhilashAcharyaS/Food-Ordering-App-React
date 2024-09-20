@@ -6,7 +6,7 @@ const Header = () => {
 
   const [btnName, setBtnName] = useState("Login");
     return (
-      <div className="header">
+      <div className="header flex justify-between">
         <div className="logo-container">
           <img
             className="logo"
