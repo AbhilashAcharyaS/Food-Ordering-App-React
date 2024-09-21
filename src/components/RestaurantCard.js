@@ -12,23 +12,24 @@ const RestaurantCard = (props) => {
   } = resData?.info;
   const { slaString } = resData?.info.sla;
   
+  const cuisinesMax4= cuisines.slice(0,4)
   return (
-    <div className="res-card">
+    <div className="res-card w-48 h-[380px] m-2 p-2 bg-gray-50 rounded-xl hover:bg-gray-200 hover:shadow-xl hover:scale-[1.02]">
       <img
         src={CDN_URL + cloudinaryImageId}
         alt="Restarant Image"
-        className="res-img"
+        className="res-img w-full h-[150px] mx-auto rounded-xl"
       />
-      <h3>{name}</h3>
-      <h4>{areaName}</h4>
-      <p>{cuisines.join(", ")}</p>
-      <p>
+      <h3 className="font-bold text-center py-1">{name}</h3>
+      <h4 className="text-center">{areaName}</h4>
+      <p className="font-semibold text-center">{cuisinesMax4.join(", ")}</p>
+      <p className="text-center">
         {avgRating}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
           fill="currentColor"
-          className="size-4"
+          className="size-4 inline mt-[-4px]"
         >
           <path
             fillRule="evenodd"
@@ -38,7 +39,7 @@ const RestaurantCard = (props) => {
         </svg>{" "}
         ({totalRatingsString})
       </p>
-      <p>{slaString}</p>
+      <p className="text-center">{slaString}</p>
     </div>
   );
 };

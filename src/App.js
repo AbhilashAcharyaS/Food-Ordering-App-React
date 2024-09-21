@@ -16,7 +16,7 @@ const About= lazy(()=>import("./components/About"));
 
 const AppLayout = () => {
   return (
-    <div className="">
+    <div className="flex flex-col justify-between h-screen">
       <Header/>
       <Outlet/>
       <Footer/>

@@ -6,27 +6,27 @@ const Header = () => {
 
   const [btnName, setBtnName] = useState("Login");
     return (
-      <div className="header flex justify-between">
-        <div className="logo-container">
+      <div className="header flex justify-between bg-slate-100">
+        <div className="logo-container w-24">
           <img
             className="logo"
             src={LOGO_URL}
             alt="LOGO"
           />
         </div>
-        <div className="nav-items">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link>  </li>
-            <li> <Link to="/contact">Contact</Link></li>
-            <li>Cart</li>
-            <button className="login" onClick={()=>{
+          <ul className="flex items-center">
+            <li className="px-4 m-4 font-semibold text-xl"><Link to="/">Home</Link></li>
+            <li className="px-4 m-4 font-semibold text-xl"><Link to="/about">About</Link>  </li>
+            <li className="px-4 m-4 font-semibold text-xl"> <Link to="/contact">Contact</Link></li>
+            <li className="px-4 m-4 font-semibold text-xl">Cart</li>
+            <li className="p-4 m-4 font-semibold text-xl bg-green-200 rounded-xl hover:shadow-xl"> <button className="login " onClick={()=>{
                 if(btnName=="Login") setBtnName("Logout");
                 else setBtnName("Login")
                 console.log(btnName);                
-            }}>{btnName}</button>
+            }}>{btnName}</button></li>
+
+           
           </ul>
-        </div>
       </div>
     );
   };

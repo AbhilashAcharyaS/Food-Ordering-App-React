@@ -44,15 +44,15 @@ class UserClass extends React.Component{
     
 
     return (
-        <div className="about-page">
+        <div className="about-page flex w-1/2 mx-auto justify-center mt-4 border rounded-xl p-4  hover:shadow-2xl bg-gradient-to-r from-gray-300 to-white hover:from-cyan-700">
           <div className="img">
-          <img src={avatar_url} className="developer-img"/>
+          <img src={avatar_url} className="developer-img rounded-full w-40 mr-8"/>
           </div>
-          <div>
-            <h2>{name}</h2>
+          <div className="mt-4">
+            <h2 className="font-semibold text-lg">{name}</h2>
             <h3>{role} </h3>
             <h3>{location}</h3>
-            <h4> {email}</h4>
+            <h4 className=""> {email}</h4>
             <h4>Github Profile: <a href={html_url} target="_blank">{html_url} </a></h4>
             </div>
         </div>
