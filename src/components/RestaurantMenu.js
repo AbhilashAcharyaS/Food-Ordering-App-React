@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import {CDN_URL, nonVegIcon, vegIcon}  from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 
 const RestaurantMenu =()=>{
@@ -14,8 +15,11 @@ const RestaurantMenu =()=>{
     const {name, cuisines, costForTwoMessage, avgRating, totalRatingsString, areaName,sla, feeDetails} = resInfo?.cards[2]?.card?.card?.info;
 
     const {itemCards}= resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    console.log(itemCards);
+
+    const categories= resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((x)=>(x.card?.card?.["@type"]=== "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"));
     
+    console.log(categories);
+
     return (
         <div className="res-menu-container w-3/5 mx-auto">
             <h2 className="font-bold text-2xl my-4">{name}</h2>
@@ -37,25 +41,10 @@ const RestaurantMenu =()=>{
             <div className="res-menu">
                 <h2 className="text-xl font-semibold text-center my-8">MENU</h2>
 
+                    {/* Categories accordion */}
+
+                    {categories.map((category)=><RestaurantCategory key={category.card.card.title} data={category?.card?.card}/>)}
                 
-                    {itemCards.map((item)=>(
-                         <div key={item.card.info.id} className="flex justify-between items-center my-4 py-6 border-b border-slate-500">
-                            <div>
-                                {(()=>{
-                                    if(item.card.info.itemAttribute.vegClassifier==="NONVEG"){
-                                        return <p><img src={nonVegIcon} className="w-[20px]"/></p>
-                                    }
-                                    else return <p><img src={vegIcon} className="w-[20px]"/></p>
-                                }) ()}
-                                
-                                <h3 className="font-semibold text-lg">{item.card.info.name}</h3>
-                                <h4 className="font-semibold"> ₹{item.card.info.price/100 || item.card.info.defaultPrice/100}</h4>
-                                <p className="mr-6 text-slate-500">{item.card.info.description}</p>
-                            </div>
-                            
-                            <img src={CDN_URL+item.card.info.imageId} className="w-[156px] h-full rounded-2xl" />
-                        </div>
-                    ))}
                     
                 
             </div>
