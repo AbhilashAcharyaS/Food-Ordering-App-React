@@ -1,10 +1,19 @@
+import { useDispatch } from "react-redux";
 import { vegIcon } from "../utils/constants";
 import { nonVegIcon } from "../utils/constants";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({items})=>{
 
-    
+    //dispatch an action 
+    const dispatch = useDispatch()
+
+    const handleAddItem = (item)=>{
+        dispatch(addItem(item));
+        console.log(item);
+        
+    }    
 
     return(
         <div>
@@ -25,7 +34,7 @@ const ItemList = ({items})=>{
                             <div className="w-3/12">
                              <img src={CDN_URL+item.card.info.imageId} className="h-[144px] w-[156px] rounded-2xl z-0 relative" />
                             
-                             <button className=" w-[120px] block ml-5 mt-[-30px] z-20 border border-black bg-white text-green-600 shadow-lg rounded-xl px-8 py-2 font-bold absolute">ADD</button>
+                             <button className=" w-[120px] block ml-5 mt-[-30px] z-20 border border-black bg-white text-green-600 shadow-lg rounded-xl px-8 py-2 font-bold absolute" onClick={()=>handleAddItem(item)}>ADD</button>
                         
                             </div>
                             

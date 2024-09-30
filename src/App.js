@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 
 // lazy loading About component
@@ -16,11 +18,13 @@ const About= lazy(()=>import("./components/About"));
 
 const AppLayout = () => {
   return (
+    <Provider store={appStore}>
     <div className="flex flex-col justify-between h-screen">
       <Header/>
       <Outlet/>
       <Footer/>
     </div>
+    </Provider>
   );
 };
 
