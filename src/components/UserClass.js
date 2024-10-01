@@ -44,7 +44,7 @@ class UserClass extends React.Component{
     
 
     return (
-        <div className="about-page flex w-1/2 mx-auto justify-center mt-4 border rounded-xl p-4  hover:shadow-2xl bg-gradient-to-r from-gray-300 to-white hover:from-cyan-700">
+        <div className="about-page flex w-1/2 mx-auto justify-center mt-4 border rounded-xl p-4  hover:shadow-2xl bg-gradient-to-r from-gray-300 to-white hover:from-cyan-700 hover:scale-105">
           <div className="img">
           <img src={avatar_url} className="developer-img rounded-full w-40 mr-8"/>
           </div>

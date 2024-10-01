@@ -9,9 +9,15 @@ const cartSlice = createSlice({
         addItem:(state, action)=>{
             state.items.push(action.payload);
         },
-        removeItem:(state,action)=>{
-            state.items.pop();
+
+        removeItem:(state,action)=>{           
+            const updatedCart= state.items.filter(
+                cartItem => cartItem.card.info.id != action.payload.card.info.id
+            )
+            state.items = updatedCart;
+
         },
+
         clearCart:(state,action)=>{
             state.items.length=0;
         }

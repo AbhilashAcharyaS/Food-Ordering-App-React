@@ -18,7 +18,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex})=>{
                 </span>
             </div>
             <div className="accordion-body">
-             {showItems && <ItemList items={data.itemCards}/> }   
+             {showItems && <ItemList items={data.itemCards} isCartPage={false} /> }   
             </div>
             
         </div>
