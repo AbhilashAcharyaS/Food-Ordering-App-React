@@ -11,7 +11,7 @@ const Cart = ()=>{
     }
 
     let itemTotal=0;
-    cartItems.map((x)=>itemTotal+= (Math.floor(x.card.info.price/100)));
+    cartItems.map((x)=>itemTotal+= (Math.floor(x.card.info.price/100 || x.card.info.defaultPrice/100)));
 
     return (
         <div>
