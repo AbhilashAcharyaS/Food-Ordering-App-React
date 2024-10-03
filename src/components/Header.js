@@ -27,8 +27,7 @@ const Header = () => {
             <li className="p-4 m-4 font-semibold text-xl bg-green-200 rounded-xl hover:shadow-xl"> 
               <button className="login " onClick={()=>{
                 if(btnName=="Login") setBtnName("Logout");
-                else setBtnName("Login")
-                console.log(btnName);                
+                else setBtnName("Login")              
             }}>{btnName}</button></li>
 
            
